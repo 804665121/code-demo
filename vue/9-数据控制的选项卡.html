@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.red{
+		background-color: red;
+	}
+	#app div{
+		display: none;
+	}
+</style>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="button" 
+		v-for="item,i in tabData" 
+		v-bind:value="item.title"
+		v-on:click="tabBundle(i)"
+		v-bind:class="{red:i===index}">
+		<div v-for="item,j in tabData" v-bind:style="{display:j===index ? 'block':'none'}">
+			<p v-for="options in item.itemList">{{options.subTitle}}</p>
+		</div>
+	</div>
+<script type="text/javascript">
+	/*
+         控制class
+         v-bind:class="{class名称：表达式}"
+         表达式为true就添加class为false就忽略 
+
+         控制style
+         v-bind:style="{样式名：表达式}"
+
+
+         Vue中的事件
+
+         语法:
+           v-on:事件名="事件处理函数"
+
+         带参数
+           v-on:事件名="事件处理函数()"
+
+
+	*/
+  var tabData=[
+	  {
+		  	title:'新闻',
+		  	itemList:[
+	  				{
+	  					subTitle:'新闻'
+	  				},
+	  				{
+	  					subTitle:'新闻'
+	  				},
+	  				{
+	  					subTitle:'新闻'
+	  				},
+	  				{
+                        subTitle:'新闻'
+	  				}
+	  				]
+	  },
+	  	{
+	  		title:'汽车',
+	  		itemList:[
+	  				{
+	  					subTitle:'汽车'
+	  				},
+	  				{
+	  					subTitle:'汽车'
+	  				},
+	  				{
+	  					subTitle:'汽车'
+	  				}]
+	  },
+  		{
+  			title:'娱乐',
+  			itemList:[
+	  				{
+	  					subTitle:'娱乐'
+	  				},
+	  				{
+	  					subTitle:'娱乐'
+	  				}
+	  				]
+  		}
+  ];
+  var app=new Vue({
+  	el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			tabData,
+			index:0
+
+		},
+		methods:{
+			tabBundle(i){
+				this.index=i;
+
+			}
+
+		}
+	});
+
+
+	
+</script>
+</body>
+</html>

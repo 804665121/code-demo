@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性的应用</title>
+</head>
+<script>
+window.onload=function(){
+  var btn = document.getElementsByTagName('input');
+  var aP =document.getElementsByTagName('p');
+  var arr=['嘻哈','哈希','添加'];
+  // var arr=['A','B','C','D'];
+  // for(var i=0;i<arr.length;i++){
+  // 	btn[i].anum=0;
+  // 	btn[i].onclick=function(){
+  // 		this.value=arr[this.anum];
+  // 		this.anum++;
+  // 		if(this.anum===arr.length){
+  // 			this.anum=0;
+  // 		}
+  // 	}
+  // }
+  // 
+// 给数组添加索引
+for(var i=0;i<btn.length;i++){
+	btn[i].index=i;
+	btn[i].onclick=function(){
+		this.value=arr[this.index];
+		aP[this.index].innerHTML=arr[this.index];
+
+	}
+
+}  
+
+
+
+
+}
+
+
+
+</script>
+<body>
+<input value="0"  type="button"></input>
+<input value="0"  type="button"></input>
+<input value="0"  type="button"></input>
+<p>a</p>
+<p>b</p>
+<p>c</p>
+</body>
+</html>

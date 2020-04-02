@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/new.js"></script>
+</head>
+<style type="text/css">
+div{
+	width: 200px;
+	height: 300px;
+	background-color: red;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("btn").onclick=function(){
+		// if($("div").currtStyle){
+		// 	alert($("div").currtStyle.width);
+		// }else{
+		// 	alert(getComputedStyle($("div")).width)
+		// }
+	alert(getStyle($("div"),"margin"));
+	//获取的是浏览器计算后的样式
+	//background：url red ...复合样式(不要获取)
+	//backgroundColor        单一样式(不要用来做判断)
+	//不可有空格
+	//不要获取未设置后的样式 不兼容
+	}
+ 
+	function getStyle(obj,attr){
+		return obj.currtStyle ? obj.currtStyle[attr] : getComputedStyle(obj)[attr];
+	}
+
+})
+</script>
+<body>
+<input type="button" id="btn" value="点击弹出">
+	<div id="div"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+
+</style>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="button" name="" @click="Test1" value="点击">
+		<input type="button" name="" @click="Test($event,123)" value="点击">
+		
+	</div>
+<script type="text/javascript">
+	/*
+         v-on 可以简写成@
+         当在模板中给事件的方法传参,需要手动使用$event把事件对象传给方法
+
+	*/
+ 
+  var app=new Vue({
+  	el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			
+
+		},
+		methods:{
+			Test1(ev){
+				//不传参数第一个就是事件对象
+				console.log(ev);
+				console.log(this);
+				console.log(123);
+			},
+			Test(ev,param){
+				// 这个方法接受的是传过来的参数,不是事件对象
+				console.log(ev);
+				// ev表示事件对象,手动传给方法
+				console.log(param);
+
+			}
+
+		}
+	});
+
+
+	
+</script>
+</body>
+</html>

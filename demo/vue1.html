@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开始学习Vue~</title>
+	<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div class="imgs"><img src="" alt=""></div>
+	<a href=# title="hello">hello</a>
+
+	<div id="app">
+		
+		<p v-bind:title="message">
+			鼠标触碰看我的展示内容</p>
+			<input type="text" v-model="message">
+			<p></p>
+			<button v-on:click="btn">点击我看看~</button>
+			<p v-for="na in name">
+				{{na.item}}
+		</p>
+
+		</div>
+		<div id="font">
+			<p v-if="seen">this a page</p>
+			<p v-else>新的地ingxi哪个系</p>
+
+		</div>
+		<div id="app-7">
+			<ol>
+				<todo-item 
+				v-for='item in  fruitList'
+				v-bind:todo="item"
+				v-bind:key="item.id">
+			</todo-item>
+		</ol>
+	</div>
+	<div id="napp">
+		<ul><todo-item v-for='n in nList' v-bin:todo="n" v-bind:key="n.id"></todo-item></ul>
+	</div>
+    
+	<script src=js/index.js></script>
+	
+</body>
+</html>

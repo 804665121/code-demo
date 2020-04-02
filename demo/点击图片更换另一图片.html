@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+body{
+	 background: url('image/bj.jpg') no-repeat right top;
+}
+#bigBox{
+	 width: 1000px;
+	 margin:100px auto;
+	 height: 100%;
+	
+
+}
+#box1{
+	width: 463px;
+    height: 300px;
+    margin: 28px 8px 10px;
+    padding: 20px;
+   
+}
+#box2,#box1{
+	 float: left;
+	 position: relative;
+	 box-shadow: 5px 7px 18px #888888;
+
+}
+#box2{
+    width: 33%;
+    height: 400px;
+   margin: 0 56px 10px 448px;
+   padding: 10px;
+}
+img{
+	width: 100%;
+	vertical-align: middle;
+	height: 100%;
+}
+p{
+	text-align: center;
+}
+
+</style>
+<body>
+<div id="bigBox">
+<div id="box1"><img src="" alt=""><p></p></div>
+<div id="box2"><img src="" alt=""><p></p></div>
+</div>
+<script type="text/javascript">
+var box=document.getElementById('box1');
+var oImg1=box.getElementsByTagName('img')[0];
+var p1=box.getElementsByTagName('p')[0];
+var bxo2=document.getElementById('box2');
+var oImg2=box2.getElementsByTagName('img')[0];
+var p2=box2.getElementsByTagName('p')[0];
+var num=0;
+// alert(typeof(num));
+var i=0;
+var arrImg1=['image/m1.jpg','image/m2.jpg','image/m3.jpg','image/m4.jpg'];
+var arrImg2=['image/p1.jpg','image/p2.jpg','image/p3.jpg'];
+
+	oImg1.src=arrImg1[num];
+	p1.innerHTML=1+num+'/'+arrImg1.length;
+	p2.innerHTML=1+i+'/'+arrImg2.length;
+	oImg2.src=arrImg2[i];
+	
+
+box.onclick=function(){ 	
+	    i++;
+		if(i==arrImg2.length){
+			i=0;
+		}
+		oImg2.src=arrImg2[i];
+		p2.innerHTML=1+i+'/'+arrImg2.length;
+		num++;
+		if(num==arrImg1.length){
+			num=0;
+		}
+		oImg1.src=arrImg1[num];
+		p1.innerHTML=1+num+'/'+arrImg1.length;
+}
+bxo2.onclick=function(){
+	 i++;
+		if(i==arrImg2.length){
+			i=0;
+		}
+		oImg2.src=arrImg2[i];
+		p2.innerHTML=1+i+'/'+arrImg2.length;
+}
+</script>
+
+	
+</body>
+</html>

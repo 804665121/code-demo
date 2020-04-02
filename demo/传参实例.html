@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传参实例</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){
+	var oUl=document.getElementById('box');
+	var oLi=oUl.getElementsByTagName('li');
+	var oP=oUl.getElementsByTagName('p')[0];
+	let numAll=0;
+	var money=0;
+	var max=0;
+	var arr=[];
+	var oP=oUl.getElementsByTagName('p')[0];
+	for(var i=0;i<oLi.length;i++){
+		fn(oLi[i]);
+	}
+	function fn(li){
+		var oBtn =li.getElementsByTagName('input');
+		var oStrong=li.getElementsByTagName('strong')[0];
+		var oEm=li.getElementsByTagName('em')[0];
+		var oSpan=li.getElementsByTagName('span')[0];
+		
+		var n1=Number(oStrong.innerHTML);
+		var n2=parseFloat(oEm.innerHTML);
+		var num=[];
+		oBtn[1].onclick=function(){
+			n1++;
+			oStrong.innerHTML=n1;
+			oSpan.innerHTML=parseFloat(n1*n2,3)+'元';
+			
+			if(max==0){
+				max=n2;
+
+			}else{
+				if(max>n2){
+					max=max;
+				}else{
+					max=n2;
+				}
+			}
+			if(n1>0){
+				  numAll++;
+				  if(numAll<0){
+				  	numAll=0;
+				  }
+				  money+=parseFloat(n1*n2,3);
+			}
+		 pinfo(numAll,money,max);
+		}
+
+		oBtn[0].onclick=function(){
+			n1--;
+			if(n1<0){
+				n1=0;
+			}
+			oStrong.innerHTML=n1;
+			oSpan.innerHTML=parseFloat(n1*n2)+'元';
+			if(n1>0){
+				numAll--;
+				money-=parseFloat(n1*n2,3);
+				arr.push(n2);
+				console.log(arr);
+				for(var j=0;j<n2.length;j++){
+					if(max>arr[j]){
+						max=max;
+					}else{
+						max=arr[j];
+					}
+				}
+				console.log(max);
+			}
+			pinfo(numAll,money,max);
+			
+		}
+	}
+	function pinfo(num,money,max){
+	  var html='商品合计共'+num+'件'+'共花费'+money+'元，'+'最高单价金额是'+max+'元';
+	  oP.innerHTML=html;
+	}
+}
+</script>
+<body>
+<ul id="box">
+	<li>
+	<input type="button" value="-">
+	<strong>0</strong>
+	<input type="button" value="+">
+	单价：<em>50元</em>
+	合计：<span>0元</span>
+	</li>
+	<li>
+	<input type="button" value="-">
+	<strong>0</strong>
+	<input type="button" value="+">
+	单价：<em>10.8元</em>
+	合计：<span>0元</span>
+	</li>
+	<li>
+	<input type="button" value="-">
+	<strong>0</strong>
+	<input type="button" value="+">
+	单价：<em>20.36元</em>
+	合计：<span>0元</span>
+	</li>
+	<li>
+	<input type="button" value="-">
+	<strong>0</strong>
+	<input type="button" value="+">
+	单价：<em>60元</em>
+	合计：<span>0元</span>
+	</li>
+	<li>
+	<input type="button" value="-">
+	<strong>0</strong>
+	<input type="button" value="+">
+	单价：<em>18.52元</em>
+	合计：<span>0元</span>
+	</li>
+	<p></p>
+</ul>
+</body>
+</html>

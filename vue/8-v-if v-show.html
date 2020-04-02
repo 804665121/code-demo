@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+        <input type="checkbox" name="" v-model="checked">
+        <p v-show="checked">{{checked}}</p>
+        <p v-if="checked">{{checked}}</p>
+		<p>{{msg}}</p>
+	</div>
+<script type="text/javascript">
+	/*
+          v-if 
+          v-show
+          初始页面条件判断是否渲染某一块的模板，使用v-if
+          频繁切换模板的显示隐藏，使用v-show
+	*/
+
+
+
+let app=new Vue({
+		el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			msg:'hi',
+			
+				checked:true
+
+		}
+	});
+
+
+	
+</script>
+</body>
+</html>

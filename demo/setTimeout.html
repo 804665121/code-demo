@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setTimeout弹窗广告</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){
+	var arr=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg'];
+	 setTimeout(fn,3000);
+	 
+	setTimeout(function(){
+     document.body.style.background='url('+arr[1]+')';
+	},4000);
+	function fn(){
+     document.body.style.background='url('+arr[0]+')';
+	}
+}
+</script>
+<body>
+	
+</body>
+</html>

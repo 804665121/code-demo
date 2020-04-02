@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>轮播</title>
+<style>
+
+
+</style>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+
+<body>
+<div class="switch-box">
+</div>
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    /*这是一个定时器*/    
+setInterval (function () {
+            $("span").animate({opacity:"1",marginTop:"-20px"},3000);
+            $("span").animate({opacity:"0",marginTop:"40px"},0)
+        }, 1000);   
+      })
+</script>
+<body>
+<span style="display:block;width:90%;height:20px;">你好啊</span>
+</body>

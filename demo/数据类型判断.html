@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据类型判断</title>
+</head>
+<script type="text/javascript">
+var arr=['100px','abc'-6,[],-9856,34,-2,0,'300', ,function(){alert(1);},null,document,[],true,'200px'-30,'23.45元',5,Number('abc'),function(){alert(3);}];
+var oArr=[];
+for(var i=0;i<arr.length;i++){
+
+	if(!isNaN(arr[i])){
+		if(Number(arr[i])){
+			oArr.push(arr[i]);
+	} 
+}
+for(var j=0;j<oArr.length;j++){
+	var  max=oArr[j];
+	// if(max<oArr[j]){
+		console.log(max);
+	// }
+}
+}
+</script>
+<body>
+	
+</body>
+</html>

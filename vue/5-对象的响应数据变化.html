@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<p>{{msg}}</p>
+		<p>{{news.ketang}}</p>
+	</div>
+<script type="text/javascript">
+let app=new Vue({
+		el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			msg:'hi',
+			news:{} 
+
+		}
+	});
+      //这种方法不可响应
+     // app.news.ketang='1weef';
+
+     //调用Vue的静态方法set
+     // 语法:Vue.set(target,property,value);
+     // Vue.set(app.news,'ketang','新添加的元素');
+
+     // 使用$set
+     // app.$set(app.news,'ketang','新添加的元素');
+     //改写属性的值，重新赋值
+     app.news={ketang:'xinde '}
+
+
+    // 挂载在函数身上的方法是静态方法
+     function fn(){
+
+     }
+     //称这个msg方法为静态方法
+     fn.msg=function(){
+
+     }
+
+
+
+    let arr =new Array; //实例
+    arr.push()
+    // 实例：就是通过函数创建出来的对象
+    //静态方法是挂载在函数上的方法，调用的时候通过函数调用
+    //原型上的方法，需要通过实例调用 
+
+
+	
+</script>
+</body>
+</html>

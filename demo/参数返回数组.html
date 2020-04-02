@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>参数返回数组</title>
+</head>
+<script type="text/javascript">
+// alert(fn1(5));
+// alert(fn1(6));
+// function fn1(n){
+// 	var arr=[];
+// 	for(var i=0;i<=n;i++){
+// 		arr.push(i);
+// 	}
+// 	return arr;
+// }
+// 
+ alert(fn2(2,5));
+ alert(fn2(6,2));
+ function fn2(n1,n2){
+ 	var arr =[];
+ 	var max=0;
+ 	var min=0;
+ 	if(n1>n2){
+ 		max=n1;
+ 		min=n2;
+ 	}else{
+ 		max=n2;
+ 		min=n1;
+ 	}
+ 	for(var i=min;i<=max;i++ ){
+ 		arr.push(i);
+ 	}
+ 	return arr;
+ }
+
+
+</script>
+<body>
+	
+</body>
+</html>

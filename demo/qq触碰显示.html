@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq触碰显示</title>
+</head>
+<style>
+#qq{
+	 width: 300px;
+	 height: 600px;
+	 float: left;
+	 background-color:pink; 
+}
+#title{
+	width: 400px;
+	height: 200px;
+	background-color:red; 
+	float: left;
+	display: none;
+}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var div=document.getElementsByTagName('div');
+	var qq=document.getElementById('qq');
+	var title=document.getElementById('title');
+	qq.onmouseover=show;
+	qq.onmouseout=hide;
+	title.onmouseover=show;
+	title.onmouseout=hide;
+	var timer=null;
+	function show(){
+		clearInterval(timer);
+		title.style.display='block';
+	}
+  	
+	function hide(){
+		timer=setTimeout(function(){
+			title.style.display='none';
+		},200);
+		
+	}
+
+}
+</script>
+<body>
+<div id="qq"></div>	
+<div id="title"></div>	
+</body>
+</html>

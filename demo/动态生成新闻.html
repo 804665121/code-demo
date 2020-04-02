@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('list');
+	var btn=document.getElementById('btn');
+	var Off=true;
+	var arr=[
+	"港人登苹果日报头版广告批梁振英干预新闻自由的背后",
+	"【新闻看点】神秘女闯海湖开庭间谍疑点陡增",
+	"港人登苹果日报头版广告批梁振英干预新闻自由的背后",
+	"【新闻看点】神秘女闯海湖开庭间谍疑点陡增"
+	];
+	btn.onclick=function(){
+		if(Off){
+			Off=false;
+			for(var i=0;i<arr.length;i++){
+			oDiv.innerHTML+='<li>'+arr[i]+'</li>';
+		}
+		}
+		
+	}
+}
+//思路：按钮内容清空 再执行  判断
+</script>
+<body>
+<button id="btn">点击我生成新闻</button>
+<div id="list">
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setInterval定时器</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){
+	var  btn=document.getElementsByTagName('input');
+	var  aImg=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg'];
+	var num=0;
+	var timer=null;
+	var box=document.body;
+	btn[0].onclick=function(){
+     clearInterval(timer);
+     timer=setInterval(fn,1000);
+
+	}
+	btn[1].onclick=function(){
+		clearInterval(timer);
+	}
+	function fn(){
+		box.style.background= 'url('+aImg[num]+')';
+		num++;
+		num=num%aImg.length;
+	}
+	
+	
+
+}
+
+</script>
+<body>
+<input type="button" name="" value="点击我切换图片">
+<input type="button" name="" value="暂停">
+	
+</body>
+</html>

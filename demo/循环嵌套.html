@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组嵌套</title>
+</head>
+<style>
+div{
+	width: 500px;
+	height: 500px;
+	border:1px solid red;
+}
+</style>
+<body>
+<div id="list">
+<ul>
+
+	<h1>你是谁啊<h1>
+		<li>
+			<ul>
+				<li>你是谁啊</li>
+				<li>你是谁啊</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>你是谁啊1</li>
+				<li>你是谁啊1</li>
+				<li>你是谁啊1</li>
+				<li>你是谁啊1</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>你是谁啊2</li>
+				<li>你是谁啊2</li>
+				<li>你是谁啊2</li>
+				<li>你是谁啊2</li>
+			</ul>
+		</li>
+
+	
+</ul>
+</div>
+<button id="btn">点击按钮</button>
+
+<script>
+var arr=[[1,23,34,'345'],['helo','35656','5678'],['nuis ',123214,'kehrkwerht']];
+for(var i=0;i<arr.length;i++){
+	for(var j=0;j<arr[i].length;j++){
+		console.log(arr[i][j]);
+	}
+}
+var oList=document.getElementById('list')
+var  oul = oList.getElementsByTagName('ul')
+var btn=document.getElementById('btn');
+btn.onclick=function(){
+	oList.style.cssText='width:600px;height:600px;'
+}
+
+var len=oul.length;
+for(var i=0;i<len;i++){
+	var  oli = oul[i].getElementsByTagName('li');
+	for(var j=0;j<oli.length;j++){
+		console.log(oli[j]);
+		oli[j].style.color="red";
+	}
+}
+
+</script>
+
+
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                            

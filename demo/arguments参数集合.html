@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arguments参数集合</title>
+</head>
+<script type="text/javascript">
+// alert(fn1(1,2,3,4,6));
+// alert(fn1(4,6,8));
+// function fn1(){
+// 	var sum=0;
+// 	for(var i=0;i<arguments.length;i++){
+// 		sum+=arguments[i];
+// 	}
+// 	return sum;
+// }
+
+// alert(fn(10,2,3,"+"));
+// function fn(){
+// 	var sum=0;
+// 	for(var i=0;i<arguments.length;i++){
+// 		if(arguments[arguments.length-1]=='+'){
+// 				sum+=arguments[i];
+// 		}
+// 	}
+// 	return parseInt(sum);
+// }
+alert(fn1(10,50,1,'-'));
+function fn1(){
+	var sum1=0;
+	var max=0;
+	var arr=[];
+	var sum=0;
+	for(var j=0;j<arguments.length;j++){
+		if(arguments[j]>max){
+			arr.push(max);
+			max=arguments[j];
+		}else{
+			arr.push(arguments[j]);
+		}
+	}
+	for(let i=0;i<arr.length;i++){
+		sum1+=arr[i];
+	}
+	return  max-parseInt(sum1);
+}
+
+
+</script>
+<body>
+	
+</body>
+</html>

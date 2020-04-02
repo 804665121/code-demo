@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+	.box{
+		width: 100%;
+		height: 500px;
+		border: 1px solid pink;
+		margin: 0 auto;
+		border-radius: 10px;
+	}
+	.div1{
+		overflow-y:auto;
+		overflow-x: hidden;
+        margin: 10px auto 10px auto;
+		width: 100%;
+		height: 60%;
+		border-radius: 5px;
+		border:1px solid #272822;
+	}
+
+	img{
+		vertical-align: middle;
+	}
+	.con{
+		float:left;
+	}
+	.content{
+        text-align: center;
+		word-wrap:break-word; 
+		word-break:break-all; 
+		overflow: hidden;
+		height: 30px;
+		width: 204px;
+		outline: 0;
+		border:1px solid #ccc;
+		border-radius: 10px;
+	}
+	.btn{
+	height: 30px;
+	font-size: 15px;
+	border-radius: 10px;
+	outline: 0;
+	border:1px solid #ccc; 
+	}
+	.emoji{
+		float:left;
+		position: relative;
+	}
+	.list{
+		display: none;
+		width: 128px;
+		height: 40px;
+		top: 40px;
+		border:1px solid #ccc;
+		border-radius: 10px;
+		padding: 5px;
+		left: 5px;
+		position: absolute;
+		text-align: center;
+	}
+	.on{
+		display: block;
+	}
+	input:focus{
+		background-color: pink;
+	}
+	.info{
+		width: 100%;
+		height: 30px;
+		border:pink 1px solid 2px;
+		font-size: 20px;
+	}
+	
+	</style>
+</head>
+<body>
+<div class="box">
+<div id="div1" class="div1"></div>
+<div class="emoji">
+<span id="hello" class="hello">
+<img src="image/emoji.png" alt="">
+</span>
+<div class="list" id="list">
+</div>
+</div>
+<!--<div class="con">-->
+<input type="text" id="content" class="content">
+<input type="button" value="发送" id="btn" class="btn">
+<!--</div>-->
+</div>
+	<script type="text/javascript">
+	
+	// for(var i =0;i<imginfo.length;i++){
+		
+	// }
+
+
+
+	var div1 = document.getElementById('div1');
+	var hello = document.getElementById('hello');
+	var content = document.getElementById('content');
+	var btn = document.getElementById('btn');
+	var emjimg = hello.getElementsByTagName('img')[0];
+	// console.log(emjimg);
+	var lists = document.getElementsByClassName('list')[0];
+	var box ='';
+	var item =['image/emoji-12.png','image/emoji-20.png','image/emoji-14.png','image/emoji.png'];
+	var list = document.getElementById('list');
+	var emj =true;
+	var qh=true;
+	window.onload=function(){
+		for(var i=0;i<item.length;i++){
+			box +='<img src='+item[i]+'>';
+		}
+		lists.innerHTML=box;                                      
+		$('#list').each(function(){
+			var i =0;
+				$(this).on('click','img',function(){
+					emjimg.src=item[i];
+					i++;
+					if(i>=item.length){
+						i=0;
+					}
+				});
+		});
+		// lists.addEventListener('click',function(e){
+		// 		var event = e || window.event;
+		// 		var target = event.target || event.srcElement;
+		// 		if(target.nodeName.toLowerCase()=='img'){
+		// 			emjimg.src=target.src;
+		// 		}
+		// },false);
+		
+		
+		btn.onclick=function(){
+			if(content.value==""){
+				alert('请输入内容~~');
+			}else{
+				div1.innerHTML+=hello.innerHTML+content.value+'<br>';
+				console.log(content.value);
+				
+				document.getElementById('content value').classList.add('info');
+				
+				content.value="";
+				
+			}
+		};
+		hello.onclick=function(){
+			if(emj){
+				list.classList.add('on');
+				emj=false;
+			}else{
+				list.classList.remove('on');
+				emj=true;
+			}
+		}
+	};
+	// var m = new Map(['q','r','er']);
+	var s = new Set([1,3,5,6,8,9]);
+	s.add('a');
+	// console.log(m);
+	console.log(s);
+	console.log('你的浏览器支持Map和Set！');
+	</script>
+</body>
+</html>

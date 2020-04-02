@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组信息</title>
+</head>
+<body>
+<p>点击按钮检测数组的所有元素是否都大于 18 :</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo"></p>
+<canves id="tu" style="width: 300px;height: 150px;border:1px solid red">
+您的浏览器不支持 HTML5 canvas 标签。
+</canves>
+<script>
+	var name="小米";
+	var age=30;
+	console.log('你是'+name+'今年'+age);
+
+	var arr =[10,20,'40','111'];
+	console.log(arr.indexOf(10));
+	console.log(arr.slice(2));
+	console.log(arr);
+    // includes方法
+	// var info = prompt('请输入内容',"");
+	// var iem=['红色','黄','蓝'];
+	// if(info){
+	// 	if(iem.includes(info)){
+	// 	console.log('red');
+	// }
+	// }
+	// var ages =prompt('请输入你的年龄~',"");
+	// every方法
+	var ages = [32, 33, 16, 40];
+	function checkAdult(age) {
+		return age >= 18;
+	}
+	function myFunction() {
+		ages.value.every(checkAdult);
+	}
+    var c=document.getElementById('tu');
+	var ctx = c.getContext("2d");
+	ctx.fillRect(0,0,100,100);
+	ctx.fillRect(10, 10, 100, 50);     // 绘制矩形，填充的默认颜色为黑色
+    ctx.strokeRect(10, 70, 100, 50);
+	</script>
+
+</body>
+</html>

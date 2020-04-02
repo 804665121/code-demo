@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+        <p>{{news.abc}}</p>
+		<p>{{msg}}</p>
+		<p>{{news.ketang}}</p>
+	</div>
+<script type="text/javascript">
+let app=new Vue({
+		el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			msg:'hi',
+			news:{
+                abc:'12324'
+            } 
+
+		}
+	});
+      //这种方法不可响应
+     // app.news.ketang='1weef';
+
+     //调用Vue的静态方法set
+     // 语法:Vue.set(target,property,value);
+     // Vue.set(app.news,'ketang','新添加的元素');
+
+     
+     //将app.news和{ketang:"新的元素啊"}添加到一个新的元素里面 再重新赋值给app.news
+     //给app.news添加一个新的元素
+     app.news=Object.assign({},app.news,{ketang:"新的元素啊"});
+
+    
+
+
+	
+</script>
+</body>
+</html>

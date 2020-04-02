@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+        
+		<p>{{list}}</p>
+	</div>
+<script type="text/javascript">
+let app=new Vue({
+		el:'#app',
+		data:{ //只有计划好的数据，才能做相应的响应reactive
+			msg:'hi',
+			list:[1,23,4,5]
+
+		}
+	});
+     /*
+     提供了数组的变异方法，使用这些方法将会出发视图更新
+     push(),pop(),shift(),unshift(),splice(),sort(),reverse()
+     会改变原数组
+     */
+     // app.list.push(200);
+     //不会改变原数组
+     // app.list=app.list.map(item=>item*3);
+
+     //通过下标改值不可以
+     // app.list[0]="hi";
+     //可以这样使用 
+     // app.list.splice(0,1,'hi');
+
+     //length是不能改变原数组的 不能在后面调用变异方法 那么数组将重新计算 length可以使用
+     // app.list.llength=1;
+
+
+
+
+     
+    
+
+    
+
+
+	
+</script>
+</body>
+</html>

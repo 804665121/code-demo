@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<!--在元素上写了v-model,再写value值无效-->
+		<input type="text" name="" v-model="msg">
+		<input type="checkbox" name="" v-model="checked">
+		<p>{{msg}}</p>
+		<span>{{msg}}</span>
+	</div>
+	<script type="text/javascript">
+		/*
+
+		 绑定事件
+
+		 页面->数据
+		 数据<-页面
+
+		 v-model 
+		     在表单元素上数据双向绑定
+
+
+		 */
+		var message='hello body';
+		var app=new Vue({
+			el:'#app',//element 可以写css选择器 节点
+			data:{    //数据对象上面的所有属性都会放在实例上面
+				msg:message,
+				checked:true
+			}
+		});
+		console.log(app.msg);
+	</script>
+
+</body>
+</html>

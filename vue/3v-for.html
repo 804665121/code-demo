@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app"><ul><li v-for="value in list">{{value}}</li></ul></div>	
+	<script type="text/javascript">
+		/*
+		 渲染列表指令
+		  v-for
+		   语法: v-for="value,index in arr"
+		         v-for="value,key,index in obj"
+		         obj.keys()拿取key值
+
+		*/
+		var app =new Vue({
+			el:'#app',
+			data:{
+				list:['1hao','23hao','3haos']
+
+			}
+		});
+
+		
+	</script>
+
+</body>
+</html>

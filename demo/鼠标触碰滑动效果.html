@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style>
+div{
+
+}
+ul{
+	padding: 0;
+	margin:0;
+}
+li{
+	list-style: none;
+	float: left;
+	margin:15px;
+	font-size: 20px;
+	position: relative;
+}
+.info{
+	width: 20px;
+	border:3px solid red;
+	position: absolute;
+	top: 30px;
+	left: 5px;
+
+}
+</style>
+<body>
+	<div>
+<ul>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+	<li>空格1 <p></p></li>
+</ul>
+	</div>
+	<script>
+	var arr =$('li');
+     for(var i=0;i<arr.length;i++){
+     	arr[i].index=i;
+     	console.log(this);
+     	arr[i].click(function(){
+     		console.log(arr[this.index]);
+     		this.find('p').addClass('info').siblings().removeClass('info');
+
+     	});
+     }
+	</script>
+</body>
+</html>

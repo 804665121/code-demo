@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态切换图片</title>
+</head>
+<style>
+ul{
+	padding:0;margin:0;
+}
+li{
+	list-style: none;
+}
+
+.box{
+	position: relative;
+	width: 400px;
+	height: 400px;
+	background-color:red;
+	margin:100px auto;
+	background:url('image/1.jpg') no-repeat center;
+
+}
+.box img{
+	width: 400px;
+	height: 400px;
+}
+.box ul{
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: -70px;
+
+}
+li{
+	width: 40px;
+	height: 40px;
+	margin-bottom:10px;
+	background-color: pink;
+	float: left;
+}
+.box span{ 
+	
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+}
+.box p,.box span{
+	width: 400px;
+	height: 20px;
+}
+.box p{
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+.active{
+	background-color: red;
+}
+
+</style>
+
+<body>
+<div id="pic1" class="box">
+<img src="" alt="">
+<p>qwrwe</p>
+<span>werwer</span>
+<ul>
+</ul>
+</div>
+
+<div id="pic2" class="box">
+<img src="" alt="">
+<p>qwrwe</p>
+<span>werwer</span>
+<ul>
+</ul>
+</div>
+<script>
+window.onload=function(){
+	tab('pic1',['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg'],['图片1','图片2','图片3','图片4'],'onclick');
+	tab('pic2',['image/2.jpg','image/3.jpg','image/4.jpg'],['图片1','图片2','图片3'],'onmouseover');
+}
+
+
+
+function tab(id,arr,aText,evt){
+		//存放旧li
+	var oldLi=null;
+	var num=0;
+	var oPic = document.getElementById(id);
+	var oImg = oPic.getElementsByTagName('img')[0];
+	var oUL =  oPic.getElementsByTagName('ul')[0];
+	var oSpan= oPic.getElementsByTagName('span')[0];
+	var oP = oPic.getElementsByTagName('p')[0];
+	var oLi= oUL.getElementsByTagName('li');
+
+
+	for(var i=0;i<arr.length;i++){
+		//动态添加元素
+		oUL.innerHTML+='<li></li>';
+	}
+	// 旧li就等于当前的
+	 oldLi=oLi[num];
+	
+	
+	// 初始化
+	oImg.src=arr[num];
+	oP.innerHTML=num+1+'/'+arr.length;
+	oSpan.innerHTML=aText[num];
+	oLi[num].className='active';
+	
+	
+	setInterval(fn,1000);
+	function fn(){
+		num++;
+		num%=aText.length;
+		tab();
+	}
+
+	for(var i=0;i<arr.length;i++){
+		// 给元素自定义属性
+		oLi[i].index=i;
+		oLi[i][evt]=function(){ 
+			// 当元素被点击时图片文字信息都一起变化
+		
+			oImg.src=arr[this.index];
+			oP.innerHTML=1+this.index+'/'+arr.length;
+			oSpan.innerHTML=aText[this.index];
+			// 清空上一个 当前添加
+			oldLi.className='';
+			//将上一个给当前
+			oldLi=this;
+			this.className='active';
+		}
+    }
+
+	
+
+}
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断qq号码</title>
+</head>
+
+<body>
+	<p>请输入qq号码</p>
+	<input type="text"  id="info" value="">
+	<input type="button" id="btn" value="判断">
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn=document.getElementById('btn');
+			btn.onclick=function(){
+				var iText=document.getElementById('info').value;
+				if(iText==""){
+					alert('请输入内容');
+				}else if(isNaN(iText)){
+					alert('请输入数字');
+				}else if(iText.length<5 || iText.length>10){
+					alert('请输入大于于五位数小于十位数的数字长度');
+				}else if(iText.indexOf('.')>-1||iText.indexOf('0',0)>-1){
+					alert('请输入不含小数点以及首字母不为0的整数');
+				}else{
+					alert('qq号码合法！');
+				}
+			}
+		}
+</script>
+</body>
+</html>

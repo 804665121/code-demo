@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){
+
+
+var oDiv=document.getElementById('list');
+console.log(oDiv);
+// this指的是当前调用的方法（函数）的那个对象
+function fn1(){
+	alert(this)
+}
+fn1(); 
+// this=>window;
+oDiv.onclick=fn1;  
+// this=>oDiv;
+// oDiv.onclick=function(){
+// 	fn1(); 
+// 	// fn1()里的this=>window
+// }
+}
+</script>
+<body>
+	<div id="list" style="border:1px solid red;width: 100px;height: 100px;"></div>
+</body>
+</html>

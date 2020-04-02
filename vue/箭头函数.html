@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript">
+	window.onload=function(){
+		//箭头函数 this绑定的是所定义的作用域中的this
+		document.onclick=function(){
+			setTimeout(()=>{
+            console.log(this);
+			},1000);
+		}
+
+		//函数的默认值
+		//给形参直接赋值
+		//在函数体中，不能用let或const再次声明，否则会报错
+	   function fn(a=10){
+        console.log(a);
+	   }
+	   fn(1);
+	}
+</script>
+<body>
+
+</body>
+</html>

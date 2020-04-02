@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态切换图片</title>
+</head>
+<style>
+ul{
+	padding:0;margin:0;
+}
+li{
+	list-style: none;
+}
+#pic{
+	position: relative;
+	width: 400px;
+	height: 400px;
+	background-color:red;
+	margin:100px auto;
+	background:url('image/1.jpg') no-repeat center;
+}
+#pic img{
+	width: 400px;
+	height: 400px;
+}
+#pic ul{
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: -70px;
+
+}
+li{
+	width: 40px;
+	height: 40px;
+	margin-bottom:10px;
+	background-color: pink;
+	float: left;
+}
+#pic span{ 
+	
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+}
+#pic p,#pic span{
+	width: 400px;
+	height: 20px;
+}
+#pic p{
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+.active{
+	background-color: red;
+}
+
+</style>
+
+<body>
+<div id="pic">
+<img src="" alt="">
+<p>qwrwe</p>
+<span>werwer</span>
+<ul>
+</ul>
+</div>
+<script>
+window.onload=function(){
+	//存放旧li
+	var oldLi=null;
+	var num=0;
+	var oPic = document.getElementById('pic');
+	console.log(oPic);
+	var oImg = oPic.getElementsByTagName('img')[0];
+	var oUL =  oPic.getElementsByTagName('ul')[0];
+	var oSpan= oPic.getElementsByTagName('span')[0];
+	var oP = oPic.getElementsByTagName('p')[0];
+	var oLi= oUL.getElementsByTagName('li');
+	var arr=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg'];
+	var aText = ['图片1','图片2','图片3','图片4'];
+
+
+	for(var i=0;i<arr.length;i++){
+		//动态添加元素
+		oUL.innerHTML+='<li></li>';
+	}
+	// 旧li就等于当前的
+	
+
+	
+	
+	// 初始化
+	function tab(){
+		oImg.src=arr[num];
+		oP.innerHTML=num+1+'/'+arr.length;
+		oSpan.innerHTML=aText[num];
+	for(var i=0;i<oLi.length;i++){
+		oLi[i].className='';
+		
+	}
+	oLi[num].className='active';
+	
+    
+	// for(var i=0;i<arr.length;i++){
+	// 	// 给元素自定义属性
+	// 	oLi[i].index=i;
+	// 	oLi[i].onclick=function(){
+	// 		oldLi=oLi[this];
+	// 		// 当元素被点击时图片文字信息都一起变化
+	// 		oImg.src=arr[this.index];
+	// 		oP.innerHTML=1+this.index+'/'+arr.length;
+	// 		oSpan.innerHTML=aText[this.index];
+	// 		// 清空上一个 当前添加
+	// 		oldLi.className='';
+	// 		//将上一个给当前
+	// 		oldLi=this;
+	// 		this.className='active';
+	// 	}
+	// }
+	}
+	tab();
+	var time=null;
+	function Play(){
+		time=setInterval(function (){
+			num++;
+			num%=aText.length;
+			tab();
+		},1000);
+
+	}
+	setTimeout(Play,3000);
+
+	oPic.onmouseover=function(){
+		clearInterval(time);
+	}
+	oPic.onmouseout=Play;
+	
+
+	
+
+}
+</script>
+</body>
+</html>
+
+

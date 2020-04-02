@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript">
+	var arr=[90,78,3,4];
+	// 把每一项数组中的值进行处理然后放在新的数组里面
+	var arr1=arr.map(function(item,index){
+		console.log(index,item);
+		return item*2;
+	});
+	// 'map' 
+	console.log(arr1);
+
+   var farr=[1,2,4,6,8,10,12];
+   var farrNew=farr.filter(function(item,index){
+   	console.log(item,index);
+   	// return 后面写条件，如果成立就放入新的数组中
+   	return item%2===0;
+   });
+   // 'filter'
+   console.log(farrNew);
+
+</script>
+<body>
+
+</body>
+</html>

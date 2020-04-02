@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ菜单列表展示</title>
+</head>
+<style>
+ul,h2{
+	padding: 0;
+	margin:0;
+}
+li{
+	list-style: none;
+}
+div{
+	margin:0 auto;
+	width: 300px;
+	border:1px solid pink;
+}
+.list li{
+	text-indent: 20px;
+	border:1px solid #ccc;
+	height: 30px;
+}
+.active{
+	display: none;
+	transition: all 4s;
+}
+h2:hover{
+	transition: all 4s;
+}
+.color{
+	background-color: pink;
+}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var List=document.getElementById('listBox');
+	// 标题
+	var oH=List.getElementsByTagName('h2');
+	var oUl=List.getElementsByTagName('ul');
+	// li列表
+	var oLi=document.getElementsByClassName('list');
+	var oLitem=null;
+	var arr =[];
+	var oldli=null;
+    
+	for(var i=0;i<oUl.length;i++){
+	oLitem=oLi[i].getElementsByTagName('li');
+	oH[i].index=i;
+	oH[i].onclick=function(){
+		if(oUl[this.index].className == ''){
+			oUl[this.index].className='active';
+		}else{
+			oUl[this.index].className='';
+		}
+		
+	}
+	arr.push(oLitem); 
+	}
+	for(var j=0;j<oUl.length;j++){
+    	for(var i=0;i<arr[j].length;i++){
+    		arr[j][i].onclick=function(){
+    			if(this.className==''){
+    				this.className='color';
+    			}else{
+    				this.className='';
+    			}
+    			
+    	}
+    } 
+	 
+}
+}
+</script>
+<body>
+<div>
+<ul id="listBox">
+	<li class="list">
+	<h2>我的好友</h2>
+		<ul >
+			<li>张三</li>
+			<li>张三</li>
+			<li>张三</li>
+			<li>张三</li>
+			<li>张三</li>
+			<li>张三</li>
+		</ul>
+	</li>
+	<li class="list">
+	<h2>企业好友</h2>
+		<ul >
+			<li>里斯</li>
+			<li>里斯</li>
+			<li>里斯</li>
+			<li>里斯</li>
+			
+		</ul>
+	</li>
+	<li class="list">
+	<h2>黑名单</h2>
+		<ul>
+			<li>王五</li>
+			<li>王五</li>
+			<li>王五</li>
+			<li>王五</li>
+		</ul>
+	</li>
+</ul>
+</div>
+</body>
+</html>

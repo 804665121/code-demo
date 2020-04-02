@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="text" name="" v-model="val">
+		<input type="button" value="发送" name="" v-on:click="clickBundle">
+		<ul><li v-for="value in list">
+			{{value.id}}
+		{{value.title}}</li></ul></div>
+	<script type="text/javascript">
+		let list=[
+		{
+			id:1,
+			title:'你好啊，还好吗'
+		},
+		{
+			id:2,
+			title:'hello world'
+		}
+		];
+		var app=new Vue({
+			el:'#app',
+			data:{
+				list,
+				val:''
+
+			},
+			methods:{
+				clickBundle(){
+					this.list.push({
+						id:Date.now(),
+						title:this.val
+					});
+					console.log(Date.now());
+					this.val='';
+
+				}
+
+			}
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面文字放大放小</title>
+</head>
+<style>
+
+</style>
+<body>
+<div>
+<p id="size">Query 遍历，意为"移动"，用于根据其相对于其他元素的关系来"查找"（或选取）HTML 元素。以某项选择开始，并沿着这个选择移动，直到抵达您期望的元素为止。
+下图展示了一个家族树。通过 jQuery 遍历，您能够从被选（当前的）元素开始，轻松地在家族树中向上移动（祖先），向下移动（子孙），水平移动（同胞）。这种移动被称为对 DOM 进行遍历。</p>
+<button id="btn">点击放大</button>
+<button id="btn1">点击缩小</button>
+</div>
+<script type="text/javascript">
+var num=15;
+var size=document.getElementById('size');
+var btn=document.getElementById('btn');
+var btn1=document.getElementById('btn1');
+btn.onclick=function(){
+	size.style.fontSize=num+'px';
+	num++;
+	if(num>40){
+		alert('文字达到最大值');
+	}
+}
+btn1.onclick=function(){
+	size.style.fontSize=num+'px';
+	num--;
+	if(num<10){
+		alert('文字达到最小值');
+	}
+}
+// className 添加类名
+</script>
+	
+</body>
+</html>

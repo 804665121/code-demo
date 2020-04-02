@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<script type="text/javascript" src="./src/vue.js"></script>
+<body>
+	<div id="app">
+		<input type="text" name="" v-on:input="inputBunld">
+		<span v-bind:span="span">{{span}}</span>
+		<p>{{[1,2,3,4,5].map(item=>item*2)}}</p>
+		<p>{{msg}}</p>
+	</div>
+	<script type="text/javascript">
+
+
+		//Vue中数据绑定
+		// 使用指定绑定
+		// 语法：v-on:事件名="表达式"
+		var message='hello body';
+		var msg1='hello body1221423325';
+		var app=new Vue({
+			el:'#app',//element 可以写css选择器 节点
+			data:{    //数据对象上面的所有属性都会放在实例上面
+				msg:message,
+				span:true
+				
+			},
+			methods:{   //定义方法  方法中的this都指向实例 实例app
+				fn(){
+
+				},
+				inputBunld(ev){
+					this.msg=ev.target.value;
+					console.log(ev.target);
+
+				}
+
+			}
+		});
+		console.log(app.msg);
+	</script>
+
+</body>
+</html>

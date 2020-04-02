@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态生成元素</title>
+</head>
+<style type="text/css">
+div{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: pink;
+	font-size: 30px;
+}
+</style>
+<script>
+window.onload=function(){
+	var num=10+10*210+'px';
+	var adiv = document.getElementsByTagName('div');
+	console.log(adiv);
+	for(var i= 0;i<100;i++){
+	document.body.innerHTML+='<div>'+i+'</div>';
+   }
+
+ for(var j=0;j<adiv.length;j++){
+ 	adiv[j].style.left=10+j*210+'px';
+ 	if(j%10==0){
+ 		j=0;
+ 	}
+ 	
+
+   
+}
+
+}
+
+</script>
+<body>
+
+	
+</body>
+</html>

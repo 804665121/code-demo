@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音乐全选</title>
+</head>
+<style>
+li{
+	list-style: none;
+	margin-left: 10px;
+	width: 300px;
+	height: 30px;
+	
+}
+</style>
+<script>
+window.onload=function(){
+	var aInput=document.getElementsByTagName('input');
+	var aLi=document.getElementsByTagName('li');
+	var arr=['red','blue','yellow'];
+	var old='';
+	var onew='';
+	var open=true;
+	aInput[aInput.length-1].onclick=function(){
+		for(var i=0;i<aInput.length;i++){
+			if(open){
+				if(aInput[i].checked){
+					aInput[i].checked=aInput[i].checked;
+				}else{
+					aInput[i].checked=!aInput[i].checked;
+				}
+			}else{
+
+			}
+
+		}
+	}
+	
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].style.backgroundColor=arr[i%arr.length];
+		aLi[i].index=i;
+		aLi[i].onmouseover=function(){
+			onew=this.style.backgroundColor;
+			this.style.backgroundColor='pink';
+		}
+		
+		aLi[i].onmouseout=function(){
+			aLi[this.index].style.backgroundColor=onew;
+		}
+		
+	}
+}
+// 被点击的时候显示黑色,移开之后显示黑色，再点击其它之前颜色还原
+</script>
+<body>
+	<ul>
+		<li><input type="checkbox">而变得回想 </li>
+		<li><input type="checkbox">而变得回想 </li>
+		<li><input type="checkbox">而变得回想 </li>
+		<li><input type="checkbox">而变得回想 </li>
+		<li><input type="checkbox">而变得回想 </li>
+		<li><input type="checkbox" id="all">全选 </li>
+		</ul>
+
+</body>
+</html>
